@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+    <style>
+        h1{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 15%;
+            text-align: center;
+            margin-left: 42%;
+            color:blanchedalmond;
+        }
+        h2{
+            text-align: center;
+            color: blanchedalmond;
+           
+        }
+        button{
+            text-align: center;
+            width: 120px;
+            height: 40px;
+            background-color: aquamarine;
+            border-radius: 9%;
+        }
+        body{
+            text-align: center; 
+            margin-top: 9%;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>stopwatch</h2>
+    <h1>0.00</h1>
+    <button onclick="start()">Start</button>
+    <button onclick="pouse()">Pouse</button>
+    <button onclick="reset()">reset</button>
+</body>
+<script>
+    let i = 0;
+    let timer
+    function start(){
+        timer = setInterval(()=>{
+            i++
+            document.querySelector("h1").innerText=i
+            console.log(i)
+        },1000)
+         }
+
+    function pouse(){
+        clearInterval(timer)
+    }
+
+    function reset(){
+        i = 0
+        document.querySelector("h1").innerText = i
+        start()
+    }
+</script>
+</html>
