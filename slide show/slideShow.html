@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1{
+            text-align: center;
+            color: red;
+        }
+        .container img{
+            width: 50%;
+            height: 50%;
+            margin-left: 25%;
+            
+        }
+        .container{
+            background-color: #333;
+            text-align: center;
+            max-width: 100%;
+            
+            
+        } 
+        .btn{
+            text-align: center;
+        }
+        button{
+            text-align: center;
+            width: 120px;
+            height: 40px;
+            background-color: rgb(29, 252, 178);
+            border-radius: 9%;
+            color: black;
+            font-weight: bolder;
+            font-size: larger;
+        }
+        
+        .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <div class="bod">
+    <h1>Slide Show of Krishna</h1>
+    <div class="container">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/365695850/BT/JU/RO/20619026/lord-krishna-playing-flute-canvas-painting.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjC9dT8a0AbHbb_2du9i86TLK0cNG6ej7ig4J_5UomeJcpDynavsv9gm9qdvp05PheMXs&usqp=CAU" alt="">
+        <img src="https://images-cdn.ubuy.co.in/634fc8b158c7655e6e678c27-handicraft-store-lord-child-krishna.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdqUaKy-hFmF_8x-HTYyip5NzaZwrn3uEjX0NvckEyHQ&s" alt="">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/375505841/JE/ES/NC/55522247/shree-krishna-painting-with-silver-work.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRmBp28jRIyHBzAHHDUijvmQuvWCxTevEnX56oR2-HLA&s" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLecir1p7R1deMw0dQnciYCdBVXDBL0t7Ce-mI-uclEw&s" alt="">
+        <img src="https://cityfurnish.com/blog/wp-content/uploads/2024/03/4929-min.jpg" alt="">
+        <img src="https://www.shutterstock.com/image-vector/digital-painting-devine-couple-radha-600w-2286445053.jpg" alt="">
+        <img src="https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/9460/1379460-i-2b70cca05890" alt="">
+        <img src="https://img.freepik.com/free-photo/3d-representation-hindu-deity-krishna_23-2151200099.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/fa/b4/43/fab4433dd679574bc530ec2cfb73cdf1.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/3d/c1/da/3dc1dab6354eb66cf7a09adbaf65b855.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/b9/8b/b9/b98bb92745cbc7355b2cb90a71cd8be5.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS77nfGkylsXogassVWeH9ofBweBQI4zTfQhYNJfdf9dtygCx21vTFNQ6ZwIODbQl6H5NI&usqp=CAU" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS77nfGkylsXogassVWeH9ofBweBQI4zTfQhYNJfdf9dtygCx21vTFNQ6ZwIODbQl6H5NI&usqp=CAU" alt="">
+        <img src="https://posterwa.com/cdn/shop/files/GOD12.jpg?v=1704265332" alt="">
+        <img src="https://i.pinimg.com/736x/1c/73/80/1c73801812f6987c836dedd88703a0e7.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/f0/8c/b4/f08cb4617922f18a40596f1de454d37a.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/89/d5/ce/89d5ce60c2a8f8ecdd777116822058eb.jpg" alt="">
+    </div>
+    <div class="btn">
+        <button onclick="start()">start</button>
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+        <button onclick="stop()">stop</button>
+    </div>
+
+   </div>
+<script>
+    let slideIndex = 0;
+    let auto
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.container img');
+        slides.forEach(slide => slide.style.display = 'none');
+        slides[n].style.display = 'block';
+    }
+
+    function prevSlide() {
+        slideIndex = (slideIndex - 1 + document.querySelectorAll('.container img').length) % document.querySelectorAll('.container img').length;
+        showSlide(slideIndex);
+    }
+
+    function nextSlide() {
+        slideIndex = (slideIndex + 1) % document.querySelectorAll('.container img').length;
+        showSlide(slideIndex);
+    }
+    function start(){
+         auto = setInterval(nextSlide,1000)
+    }
+    function stop(){
+        clearInterval(auto)
+    }
+
+    showSlide(slideIndex);
+</script>
+</body>
+</html>
