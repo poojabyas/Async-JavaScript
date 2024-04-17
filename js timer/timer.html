@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 15%;
+            text-align: center;
+            margin-left: 42%;
+            color:blanchedalmond;
+        }
+        h2{
+            text-align: center;
+            color: blanchedalmond;
+           
+        }
+        button{
+            text-align: center;
+            width: 120px;
+            height: 40px;
+            background-color: aquamarine;
+            border-radius: 9%;
+        }
+        body{
+            text-align: center; 
+            margin-top: 9%;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>TIMER</h1>
+    <h1 id="timer">Timer: 5:00</h1>
+    <button onclick="startCountdown()">Start</button>
+    <button onclick="stopCountdown()">Stop</button>
+    <button onclick="resetCountdown()">Reset</button>
+
+</body>
+<script>
+        let timerElement = document.getElementById("timer");
+        let totalSeconds = 300; // 5 min
+        let countdownInterval;
+
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    stopCountdown()
+                    alert("Countdown completed!");
+                }
+            }, 1000);
+        }
+
+        function stopCountdown() {
+            clearInterval(countdownInterval);
+        }
+
+        function resetCountdown() {
+            totalSeconds = 300; 
+            updateTimerDisplay();
+            stopCountdown();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timerElement.textContent = `Timer: ${formattedTime}`;
+        }
+</script>
+</html>
